@@ -18,6 +18,7 @@ package com.example.android.dessertpusher
 
 import android.content.ActivityNotFoundException
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
@@ -66,7 +67,8 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Timber.i("message here")
+        //Log.i("MainActivity", "onCreate called")
+        Timber.i("onCreate called")
         // Use Data Binding to get reference to the views
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
@@ -149,7 +151,42 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
         return super.onOptionsItemSelected(item)
     }
 
+    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
+        super.onCreate(savedInstanceState, persistentState)
+    }
+
     override fun onStart() {
         super.onStart()
+
+        Timber.i("onStart is called")
+
     }
+
+    override fun onResume() {
+        super.onResume()
+        Timber.i("onResume is called")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Timber.i("onPause is called")
+    }
+
+    override fun onStop() {
+        super.onStop()
+
+        Timber.i("onStop is called")
+
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Timber.i("onDestroy is called")
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        Timber.i("onRestart is called")
+    }
+
 }
